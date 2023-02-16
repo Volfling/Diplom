@@ -1,0 +1,26 @@
+---
+
+- name: systemd reload
+  systemd:
+    daemon_reload: yes
+
+- name: grafana systemd
+  systemd:
+    name: grafana-server
+    enabled: yes
+    state: started
+
+- name: prometheus reload
+  systemd:
+    name: prometheus
+    state: restarted
+
+- name: alertmanager reload
+  systemd:
+    name: alertmanager
+    state: restarted
+
+- name: blackbox reload
+  systemd:
+    name: blackbox_exporter
+    state: restarted
